@@ -29,6 +29,7 @@ int main() {
 			{ "buffalo" } 
 		} 
 	};
+	
 	DB1_print(DB1);
 	list<vector<list<string> * > *> DB2;
 	DB1_to_DB2(DB1, DB2);
@@ -36,8 +37,8 @@ int main() {
 	list < list<list<string *> * > > DB3;
 	DB2_to_DB3(DB2, DB3);
 	DB3_print(DB3);
-	// getchar();
-	// getchar();
+	getchar();
+	getchar();
 	return 0;
 }
 void DB1_print(vector<list<list<string>>> &DB1) {
