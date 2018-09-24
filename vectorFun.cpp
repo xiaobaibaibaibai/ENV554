@@ -5,6 +5,7 @@
 #include <list>
 #include <map>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 class course {

@@ -5,6 +5,7 @@
 #include <list>
 #include <map>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 class course {
@@ -19,6 +20,7 @@ public:
 };
 
 int main() {
+
 
 	//VECTOR
 	vector<int> V1 = { 0,1,2,3,4 };
@@ -68,6 +70,8 @@ int main() {
 	it7 = find(VC1.begin(), VC1.end(), c1);
 	if (it7 != VC1.end()) VC1.erase(it7); //You can't remove element at position end()
 
+	
+
 										  //LIST
 	list<int> L1 = { 0,4, 2, 1,3 };
 	L1.push_back(5);
@@ -85,6 +89,8 @@ int main() {
 		cout << *it9 << " ";
 		it9++;
 	}
+
+	// course c1("CIS554", 1, 3), c2("MAT296", 10, 4), c3("CSE581", 2, 3), c4("PSY205", 8, 3);
 
 
 	//only support it9++, ++it9, it9--, --it9
@@ -137,7 +143,7 @@ int main() {
 	*/
 
 
-	getchar();
-	getchar();
+	// getchar();
+	// getchar();
 	return 0;
 }

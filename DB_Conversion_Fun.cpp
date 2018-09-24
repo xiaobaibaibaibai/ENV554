@@ -70,7 +70,6 @@ void DB2_print(list<vector<int>> &DB2) {
 		for (size_t i = 0; i < it1->size(); i++) {
 			cout << (*it1)[i] << " ";
 		}
-
 		it1++;
 		cout << endl;
 	}
@@ -82,10 +81,6 @@ void DB1_to_DB3(vector<list<int>> &DB1, list< list<int> *>  &DB3) {
 		list<int> *p1 = new list<int>;
 		/*
 		list<int> L1;
-
-
-
-
 		*/
 		while (it1 != DB1[i].end())
 		{

@@ -21,9 +21,6 @@ int main() {
 	DB1_to_DB3(DB1, DB3);
 	DB3_print(DB3);
 
-
-
-
 	getchar();
 	getchar();
 	return 0;
@@ -46,10 +43,9 @@ void DB1_print(vector<list<int>> &DB1) {
 }
 
 void DB1_to_DB2(vector<list<int>> &DB1, list<vector<int>> & DB2) {
-
 	list<int>::iterator it1;
 	for (size_t i = 0; i < DB1.size(); i++) {
-		it1 = DB1[i].begin();
+		auto it1 = DB1[i].begin();
 		vector<int> V1;
 		while (it1 != DB1[i].end()) {
 			V1.push_back(*it1);

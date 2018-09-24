@@ -9,6 +9,14 @@
         "list": "cpp",
         "map": "cpp",
         "string_view": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "array": "cpp",
+        "utility": "cpp",
+        "iostream": "cpp",
+        "*.tcc": "cpp",
+        "unordered_map": "cpp",
+        "deque": "cpp",
+        "ostream": "cpp",
+        "functional": "cpp"
     }
 }
