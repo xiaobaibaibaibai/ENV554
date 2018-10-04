@@ -21,7 +21,6 @@ public:
 
 int main() {
 
-
 	//VECTOR
 	vector<int> V1 = { 0,1,2,3,4 };
 	vector<int> V2(V1), V3 = V1;
@@ -119,7 +118,6 @@ int main() {
 		cout << it20->first << " " << it20->second << endl;
 		it20++;
 	}
-
 
 	M1[34] = "John";//add a new item to M1;
 
