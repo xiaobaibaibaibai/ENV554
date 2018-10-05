@@ -52,9 +52,9 @@ int main() {
     
 	print_student_semester_courses(DB, 20171, 11111);
     
-	drop_course(DB, 20171, 11111, C1);
+	drop_course(DB, 20171, 11211, C1);
 	print_student_semester_courses(DB, 20171, 11111);
-
+    
 	add_course(DB, 20172, 11111, C2);
 	add_course(DB, 20172, 11111, C4);
 	add_course(DB, 20172, 11111, C3);
@@ -79,10 +79,10 @@ int main() {
 	print_DB(DB);
 	remove_student(DB, 11111);
 	print_DB(DB);
-    /*
+
 	getchar();
 	getchar();
-    */
+
 	return 0;
 }
 
@@ -130,18 +130,15 @@ void drop_course(map<int, map<int, vector<course *> * > > &DB, int semester, int
     }
     auto student = DB.find(id);
     if ((student -> second).find(semester) == (student -> second).end()) {
-        cout << "not exit semester " << semester << endl;
         return;
     } else {
         auto cur_semester = (student -> second).find(semester);
         for (int i = 0; i < (cur_semester -> second) -> size(); i++) {
-            // cout << (*cur_semester -> second)[i] -> name <<endl;
             if ((*cur_semester -> second)[i] -> name == c.name) {
                 (*cur_semester -> second).erase((*cur_semester -> second).begin() + i);
                 return;
             }
         }
-        cout << "not exit course " << c.name << endl;
     }
 
 }
@@ -149,12 +146,10 @@ void drop_course(map<int, map<int, vector<course *> * > > &DB, int semester, int
 void print_student_semester_courses(map<int, map<int, vector<course *> * > > &DB, int semester, int id) {
     cout << endl;
     if (DB.find(id) == DB.end()) {
-        cout << "not exit student " << id << endl;
         return;
     }
     auto student = DB.find(id);
     if ((student -> second).find(semester) == (student -> second).end()) {
-        cout << "not exit semester " << semester << endl;
         return;
     } else {
         cout << "student id = " << id << endl;
@@ -170,7 +165,6 @@ void print_student_semester_courses(map<int, map<int, vector<course *> * > > &DB
 void print_student_all_courses(map<int, map<int, vector<course *> * > > &DB, int id) {
     cout << endl;
     if (DB.find(id) == DB.end()) {
-        cout << "not exit student " << id << endl;
         return;
     }
     cout << "student id = " << id << endl;
@@ -185,7 +179,6 @@ void print_student_all_courses(map<int, map<int, vector<course *> * > > &DB, int
         semesters++;
         cout << endl;
     }
-    cout << endl;
 }
 
 void print_DB(map<int, map<int, vector<course *> * > > &DB) {
@@ -205,7 +198,6 @@ void print_DB(map<int, map<int, vector<course *> * > > &DB) {
         }
         students++;
     }
-    cout << endl;
 }
 
 /*
