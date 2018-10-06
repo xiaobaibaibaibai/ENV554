@@ -36,6 +36,7 @@ void add_course(map<int, map<int, vector<course *> * > > &DB, int semester, int 
 											   
 void drop_course(map<int, map<int, vector<course *> * >> &DB, int semester, int id, course c);
 void print_student_semester_courses(map<int, map<int, vector<course *> * >> &DB, int semester, int id);
+void dprint_student_semester_courses(map<int, map<int, vector<course *> * >> &DB, int semester, int id);
 void print_student_all_courses(map<int, map<int, vector<course *> * > > &DB, int id);
 void print_DB(map<int, map<int, vector<course *> * > > &DB);
 
@@ -44,17 +45,16 @@ int main() {
 	map<int, map<int, vector<course *> *> > DB;
 	add_student(DB, 11111);
 	course C1("CIS554", 1, 3), C2("CSE674", 1, 3), C3("MAT296", 8, 4), C4("WRT205", 5, 3);
-    
+
 	add_course(DB, 20171, 11111, C1);
-    add_course(DB, 20171, 11111, C4);
+	add_course(DB, 20171, 11111, C4);
 	add_course(DB, 20171, 11111, C3);
 	add_course(DB, 20171, 11111, C2);
-    
 	print_student_semester_courses(DB, 20171, 11111);
-    
-	drop_course(DB, 20171, 11211, C1);
+
+	drop_course(DB, 20171, 11111, C1);
 	print_student_semester_courses(DB, 20171, 11111);
-    
+
 	add_course(DB, 20172, 11111, C2);
 	add_course(DB, 20172, 11111, C4);
 	add_course(DB, 20172, 11111, C3);
@@ -82,7 +82,6 @@ int main() {
 
 	getchar();
 	getchar();
-
 	return 0;
 }
 
@@ -97,6 +96,16 @@ void add_student(map<int, map<int, vector<course *> * > > &DB, int id) {
 void remove_student(map<int, map<int, vector<course *> * > > &DB, int id) {
     if (DB.find(id) == DB.end()) {
         return;
+    }
+    auto student = DB.find(id);
+    while ((student -> second).size() > 0) {
+        auto semesters = (student -> second).begin();
+        while ((*semesters -> second).size() > 0) {
+            delete (*semesters -> second)[0];
+            (*semesters -> second).erase((*semesters -> second).begin());
+        }
+        delete (semesters -> second);
+        (student -> second).erase(semesters);
     }
     DB.erase(id);
 }
@@ -115,7 +124,6 @@ void add_course(map<int, map<int, vector<course *> * > > &DB, int semester, int 
         auto cur_semester = (student -> second).find(semester);
         for (int i = 0; i < (cur_semester -> second) -> size(); i++) {
             if ((*cur_semester -> second)[i] -> name == c.name) {
-                cout << (*cur_semester -> second)[i] -> name << " exit" << endl;
                 return;
             }
         }
@@ -133,14 +141,18 @@ void drop_course(map<int, map<int, vector<course *> * > > &DB, int semester, int
         return;
     } else {
         auto cur_semester = (student -> second).find(semester);
-        for (int i = 0; i < (cur_semester -> second) -> size(); i++) {
+        for (int i = 0; i < cur_semester -> second -> size(); i++) {
             if ((*cur_semester -> second)[i] -> name == c.name) {
+                delete (*cur_semester -> second)[i];
                 (*cur_semester -> second).erase((*cur_semester -> second).begin() + i);
+                if ((cur_semester -> second) -> size() == 0) {
+                    delete (cur_semester -> second);
+                    (student -> second).erase(semester);
+                }
                 return;
             }
         }
     }
-
 }
 
 void print_student_semester_courses(map<int, map<int, vector<course *> * > > &DB, int semester, int id) {
@@ -162,6 +174,8 @@ void print_student_semester_courses(map<int, map<int, vector<course *> * > > &DB
     }
     cout << endl;
 }
+
+
 void print_student_all_courses(map<int, map<int, vector<course *> * > > &DB, int id) {
     cout << endl;
     if (DB.find(id) == DB.end()) {
