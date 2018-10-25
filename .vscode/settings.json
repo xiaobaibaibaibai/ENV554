@@ -17,6 +17,9 @@
         "unordered_map": "cpp",
         "deque": "cpp",
         "ostream": "cpp",
-        "functional": "cpp"
+        "functional": "cpp",
+        "new": "cpp",
+        "iosfwd": "cpp",
+        "system_error": "cpp"
     }
 }
