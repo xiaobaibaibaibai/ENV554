@@ -1,28 +1,36 @@
 {
-    "command": "g++",
-    "args": [
-        "-Wall",
-        "-o main.out",
-        "main.cpp",
-        "-std=c++11",
-        "&&",
-        "./main.out"
-      ],
-    "isShellCommand": true,
-    "showOutput": "always",
-    "problemMatcher": {
-        "owner": "cpp",
-        "fileLocation": [
-            "relative",
-            "${workspaceRoot}"
-        ],
-        "pattern": {
-            "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
-            "file": 1,
-            "line": 2,
-            "column": 3,
-            "severity": 4,
-            "message": 5
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "g++",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-Wall",
+                "-o",
+                "compiling",
+                "2018_10_11_SmartPointerforLinkedList.cpp",     // change this to the name of the file you are choosing to compile and run, this is the only thing you will need to change
+                "-std=c++14",  // Tag to compile as c++14
+                "&&",
+                "./compiling"
+              ],
+              "problemMatcher": {
+                "owner": "cpp",
+                "fileLocation": [
+                    "relative",
+                    "${workspaceRoot}"
+                ],
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+              }
         }
-}
+    ]
 }

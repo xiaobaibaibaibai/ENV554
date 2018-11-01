@@ -20,6 +20,7 @@
         "functional": "cpp",
         "new": "cpp",
         "iosfwd": "cpp",
-        "system_error": "cpp"
+        "system_error": "cpp",
+        "memory": "cpp"
     }
 }
