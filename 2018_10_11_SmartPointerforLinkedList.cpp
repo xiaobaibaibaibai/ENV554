@@ -68,11 +68,11 @@ void linked_list::reverse() {
 int main() {
 
 	linked_list L1;
-	L1.make_random_list(10, 50);
+	L1.make_random_list(5, 50);
 	L1.print_list();
 	L1.reverse();
 	L1.print_list();
-	getchar();
-	getchar();
+	// getchar();
+	// getchar();
 	return 0;
 }

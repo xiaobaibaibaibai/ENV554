@@ -19,32 +19,29 @@ int main() {
 		unique_ptr<int> p4 = make_unique<int>(40);
 		cout << *p4 << endl;
 	}
-	
 	//The objected pointed by p1 will be automatically deleted once p1 is out of scope
+
 	weak_ptr<int> p7;
 	{
 		shared_ptr<int> p6;
-
 		{
 			shared_ptr<int> p5 = make_shared<int>(5);
 			p6 = p5;
 			p7 = p5;
-
+            cout << "count number is " << p7.use_count() << endl;
 			//reference count = 2: p5, p6
 		}
-
+        cout << "count number is " << p7.use_count() << endl;
 		//reference count = 1: p6
-
 	}
-
+    cout << "count number is " << p7.use_count() << endl;
 	//reference count = 0;
 	//the object pointed by p5 will be deleted automatically
 	//cout << *p7 << endl;  Error! 
 	//weak_ptr does not affect object reference count
 
-
-	if (!p7.expired()) {//p7 is pointing to an object which is not deleted.
-		cout << "p7 expired" << endl;
+	if (p7.expired()) {//p7 is pointing to an object which is not deleted.
+        cout << "p7 is expired" << endl;
 	}
 
 	weak_ptr<ThreeD> p10 = make_shared<ThreeD>(4, 5, 6);
@@ -53,7 +50,5 @@ int main() {
 	shared_ptr<ThreeD> p11 = make_shared<ThreeD>(4, 5, 6);
 	cout << p11->ht << endl;
 	p10 = p11;
-
-
 
 }

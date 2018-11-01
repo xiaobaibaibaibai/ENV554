@@ -105,7 +105,7 @@ int main() {
 	d1.print_backward();
 	*/
 
-	getchar();
-	getchar();
+	// getchar();
+	// getchar();
 	return 0;
 }

@@ -10,7 +10,7 @@ struct ThreeD {
 };
 
 int main() {
-	/*
+/*
 	//unique_ptr
 	int * p3 = new int(10);
 	{
@@ -66,7 +66,7 @@ int main() {
 
 	sp1.reset(new int(100));
 	weak_ptr<int> wp1 = sp1;
-	cout << *sp1 << endl;
+	cout << "sp1 : " << *sp1 << endl;
 	//cout << *wp1 << endl; Error!  weak_ptr does not support -> * 
 
 	shared_ptr<int> sp2;
@@ -75,25 +75,14 @@ int main() {
 	//sp2 = wp1; YOu are not allowed to assign weak_ptr to shared_ptr
 	sp2 = wp1.lock();//type casting weak_ptr to shared_ptr
 	wp2.reset();//only allow to reset to empty
+    cout << "sp2 : " << *sp2 << endl;
 
-	cout << *(wp1.lock()) << endl;
+	cout << "wp1 : " << *(wp1.lock()) << endl;
 	shared_ptr<ThreeD> sp3 = make_shared<ThreeD>(3, 4, 5);
 	weak_ptr<ThreeD> wp4 = sp3;
 
-	cout << sp3->ht << endl;
-	cout << (wp4.lock())->ht << endl;
-
-
-
-
-	
-
-
-
-
-
-
-
+	cout << "sp3->ht : " << sp3->ht << endl;
+	cout<< "wp4->ht : "  << (wp4.lock())->ht << endl;
 
 
 }
