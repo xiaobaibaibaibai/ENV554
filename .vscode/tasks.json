@@ -10,13 +10,14 @@
             "args": [
                 "-Wall",
                 "-o",
-                "compiling",
-                "2018_10_11_SmartPointerforLinkedList.cpp",     // change this to the name of the file you are choosing to compile and run, this is the only thing you will need to change
-                "-std=c++14",  // Tag to compile as c++14
+                "running",
+                "2018_10_11_SmartPointer_DoublyLinedList.cpp",
+                "-std=c++14",
+                "-ggdb3",
                 "&&",
-                "./compiling"
-              ],
-              "problemMatcher": {
+                "./running"
+            ],
+            "problemMatcher": {
                 "owner": "cpp",
                 "fileLocation": [
                     "relative",
@@ -30,7 +31,23 @@
                     "severity": 4,
                     "message": 5
                 }
-              }
+            }
+        },
+        {
+            "label": "valgrind",
+            "type": "shell",
+            "command": "valgrind",
+            "args": [
+                "--leak-check=full",
+                "--show-leak-kinds=all",
+                "--track-origins=yes",
+                "-v",
+                "--log-file=valgrind-out.txt",
+                "./running"
+            ],
+            "problemMatcher": [
+                "$gcc"
+            ]
         }
     ]
 }
