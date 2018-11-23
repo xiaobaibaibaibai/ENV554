@@ -588,8 +588,8 @@ int main() {
 	B15.erase(1);
 	cout << B15 << endl;
 
-	getchar();
-	getchar();
+	// getchar();
+	// getchar();
 
 	return 0;
 

@@ -11,8 +11,8 @@
                 "-Wall",
                 "-o",
                 "running",
-                "2018_10_11_SmartPointer_DoublyLinedList.cpp",
-                "-std=c++14",
+                "2018_11_06_Mutex.cpp",
+                "-std=c++17",
                 "-ggdb3",
                 "&&",
                 "./running"
@@ -48,6 +48,38 @@
             "problemMatcher": [
                 "$gcc"
             ]
+        },
+        {
+            "label": "gThread",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-Wall",
+                "-pthread",
+                "-lpthread",
+                "-o",
+                "running",
+                "test.cpp",
+                "-std=c++17",
+                "-ggdb3",
+                "&&",
+                "./running"
+            ],
+            "problemMatcher": {
+                "owner": "cpp",
+                "fileLocation": [
+                    "relative",
+                    "${workspaceRoot}"
+                ],
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+            }
         }
     ]
 }
