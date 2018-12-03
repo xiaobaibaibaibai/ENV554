@@ -19,7 +19,7 @@ int main() {
 		else cout << "OK" << endl;
 
 		double i = 32.5, j = 0;
-		if (j == 0) throw "Error" ;
+		if (j == 0) throw 0000 ;
 		cout << i / j;
 
 
