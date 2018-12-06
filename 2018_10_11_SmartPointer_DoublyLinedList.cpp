@@ -28,6 +28,7 @@ public:
 	void make_random_list(int m, int n);
 	void print_forward();
 	void print_backward();
+	void make_with_num(int n);
 
 	//inplement the following member functions:
 	/*
@@ -75,11 +76,29 @@ void doubly_linked_list::print_backward() {
 	}
 }
 
+void doubly_linked_list::make_with_num(int n) {
+	shared_ptr<node> p1;
+	for (int i = 0; i < n; i++) {
+		if (!head) {
+			p1 = make_shared<node>(i);
+			head = p1;
+		} else {
+			shared_ptr<node> p2 = p1;
+			p1 = make_shared<node>(i);
+			p2 -> next = p1;
+			p1 -> previous = p2;
+		}
+	}
+	tail = p1;
+}
+
 int main() {
 	doubly_linked_list d1;
-	d1.make_random_list(30, 10);
+	// d1.make_random_list(30, 10);
+	d1.make_with_num(10);
 	d1.print_forward();
 	d1.print_backward();
+	
 	/*
 	d1.reverse();
 	d1.print_forward();

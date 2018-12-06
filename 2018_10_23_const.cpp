@@ -4,23 +4,26 @@ using namespace std;
 
 
 int main() {
-
-
-
 	int P = 10, Q = 100, R = 1000, S = 5000;
 	int * p1 = &R;
-	cout << *p1;
+	cout << "p1 : " << *p1 << endl;
 
 	const int * p2 = &P;
 	//the object pointed by p2 is const
+	cout << "p2 : " << *p2 << endl;
+
 	int const * p3 = &P; //the same as const int * p3 = &P;
+	cout << "p3 : " << *p3 << endl;
 	p3 = &Q;
 	//*p3 = 5000;  error
+	cout << "p3 : " << *p3 << endl;
 
 	int * const p4 = &Q;
 	//pointer is const
+	cout << "p4 : " << *p4 << endl;
 	*p4 = 5000;
 	//p4 = &P;  error
+	cout << "p4 : " << *p4 << endl;
 
 	const int * const p5 = &P;
 	//both pointer and the object pointed by pointer are const

@@ -27,6 +27,7 @@ public:
 	//create a linked_list of m nodes, with node values randomly distributed in 0 ...n-1
 	void print_list();
 	void reverse();
+	void reverse1();
 };
 void linked_list::make_random_list(int m, int n) {
 	for (int i = 0; i < m; i++) {
@@ -64,13 +65,23 @@ void linked_list::reverse() {
 	head = p1;
 }
 
+void linked_list::reverse1() {
+	shared_ptr<node> p1 = head, p2, p3;
+	while (p1) {
+		p3 = p1 -> next;
+		p1 -> next = p2;
+		p2 = p1;
+		p1 = p3;
+	}
+	head = p2;
+}
 
 int main() {
 
 	linked_list L1;
 	L1.make_random_list(5, 50);
 	L1.print_list();
-	L1.reverse();
+	L1.reverse1();
 	L1.print_list();
 	// getchar();
 	// getchar();

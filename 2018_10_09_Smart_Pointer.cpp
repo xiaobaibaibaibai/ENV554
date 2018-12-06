@@ -40,6 +40,8 @@ int main() {
 	//cout << *p7 << endl;  Error! 
 	//weak_ptr does not affect object reference count
 
+	
+
 	if (p7.expired()) {//p7 is pointing to an object which is not deleted.
         cout << "p7 is expired" << endl;
 	}
@@ -49,6 +51,11 @@ int main() {
 	//object has expired.
 	shared_ptr<ThreeD> p11 = make_shared<ThreeD>(4, 5, 6);
 	cout << p11->ht << endl;
+
+	// 只要week point is not to an object which is not deleted, week point will not expire.
 	p10 = p11;
+	if (!p10.expired()) {
+		cout << "p10 is not expired" << endl;
+	}
 
 }

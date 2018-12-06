@@ -74,6 +74,7 @@ int main() {
 	wp2 = wp1;
 	//sp2 = wp1; YOu are not allowed to assign weak_ptr to shared_ptr
 	sp2 = wp1.lock();//type casting weak_ptr to shared_ptr
+	cout << "wp2 : " << *(wp2.lock()) << endl;
 	wp2.reset();//only allow to reset to empty
     cout << "sp2 : " << *sp2 << endl;
 

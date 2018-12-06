@@ -59,7 +59,7 @@
                 "-lpthread",
                 "-o",
                 "running",
-                "2018_10_09_Smart_Pointer.cpp",
+                "2018_10_23_reverse_with_Smart_pointer.cpp",
                 "-std=c++17",
                 "-ggdb3",
                 "&&",

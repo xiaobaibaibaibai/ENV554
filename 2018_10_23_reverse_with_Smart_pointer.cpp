@@ -30,6 +30,7 @@ public:
 	void print_forward();
 	void print_backward();
 	void reverse();
+	void reverse1();
 
 	//inplement the following member functions:
 	/*
@@ -100,6 +101,9 @@ void doubly_linked_list::reverse() {
 	head = tail;
 	tail = p2;
 }
+
+
+
 int main() {
 	doubly_linked_list d1;
 	d1.make_random_list(30, 10);
