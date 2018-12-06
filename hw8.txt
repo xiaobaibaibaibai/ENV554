@@ -1,0 +1,153 @@
+> Executing task: g++ -Wall -pthread -lpthread -o running hw7.cpp -std=c++17 -ggdb3 && ./running <
+
+Part Worker ID: 0
+Iteration: 1
+Buffer State: (0, 0, 0, 0)
+Updated Place Request: (0, 0, 0, 0)
+Place Request: (0, 2, 1, 1)
+Updated Buffer State: (0, 2, 1, 1)
+Updated Place Request: (0, 0, 0, 0)
+
+Part Worker ID: 0
+Iteration: 2
+Buffer State: (0, 2, 1, 1)
+Updated Place Request: (0, 0, 0, 0)
+Place Request: (2, 1, 1, 0)
+Updated Buffer State: (2, 3, 2, 1)
+Updated Place Request: (0, 0, 0, 0)
+
+Part Worker ID: 0
+Iteration: 3
+Buffer State: (2, 3, 2, 1)
+Updated Place Request: (0, 0, 0, 0)
+Place Request: (2, 0, 1, 1)
+Updated Buffer State: (4, 3, 3, 2)
+Updated Place Request: (0, 0, 0, 0)
+
+Part Worker ID: 0
+Iteration: 4
+Buffer State: (4, 3, 3, 2)
+Updated Place Request: (0, 0, 0, 0)
+Place Request: (2, 1, 0, 1)
+Updated Buffer State: (6, 4, 3, 3)
+Updated Place Request: (0, 0, 0, 0)
+
+Part Worker ID: 0
+Iteration: 5
+Buffer State: (6, 4, 3, 3)
+Updated Place Request: (0, 0, 0, 0)
+Place Request: (2, 1, 0, 1)
+Updated Buffer State: (6, 5, 3, 3)
+Updated Place Request: (2, 0, 0, 1)
+
+Part Worker ID: 1
+Iteration: 1
+Buffer State: (6, 5, 3, 3)
+Updated Place Request: (0, 0, 0, 0)
+Place Request: (4, 0, 0, 0)
+Updated Buffer State: (6, 5, 3, 3)
+Updated Place Request: (4, 0, 0, 0)
+
+Part Worker ID: 2
+Iteration: 1
+Buffer State: (6, 5, 3, 3)
+Updated Place Request: (0, 0, 0, 0)
+Place Request: (0, 0, 4, 0)
+Updated Buffer State: (6, 5, 4, 3)
+Updated Place Request: (0, 0, 3, 0)
+
+Product Worker ID: 1
+Iteration: 1
+Buffer State: (6, 5, 4, 3)
+Updated Place Request: (0, 0, 0, 0)
+Pickup Request: (1, 3, 0, 1)
+Updated Buffer State: (5, 2, 4, 2)
+Updated Place Request: (0, 0, 0, 0)
+
+Part Worker ID: 4
+Iteration: 1
+Buffer State: (5, 2, 4, 2)
+Updated Place Request: (0, 0, 0, 0)
+Place Request: (2, 1, 0, 1)
+Updated Buffer State: (6, 3, 4, 3)
+Updated Place Request: (1, 0, 0, 0)
+
+Product Worker ID: 3
+Iteration: 1
+Buffer State: (6, 3, 4, 3)
+Updated Place Request: (0, 0, 0, 0)
+Pickup Request: (1, 3, 1, 0)
+Updated Buffer State: (5, 0, 3, 3)
+Updated Place Request: (0, 0, 0, 0)
+
+Product Worker ID: 3
+Iteration: 2
+Buffer State: (5, 0, 3, 3)
+Updated Place Request: (0, 0, 0, 0)
+Pickup Request: (1, 3, 1, 0)
+Updated Buffer State: (4, 0, 2, 3)
+Updated Place Request: (0, 3, 0, 0)
+
+Product Worker ID: 1
+Iteration: 2
+Buffer State: (4, 0, 2, 3)
+Updated Place Request: (0, 0, 0, 0)
+Pickup Request: (0, 1, 3, 1)
+Updated Buffer State: (4, 0, 0, 2)
+Updated Place Request: (0, 1, 1, 0)
+
+Part Worker ID: 4
+Iteration: 2
+Buffer State: (4, 0, 0, 2)
+Updated Place Request: (1, 0, 0, 0)
+Place Request: (2, 0, 1, 1)
+Updated Buffer State: (6, 0, 1, 3)
+Updated Place Request: (1, 0, 0, 0)
+
+Product Worker ID: 0
+Iteration: 1
+Buffer State: (6, 0, 1, 3)
+Updated Place Request: (0, 0, 0, 0)
+Pickup Request: (1, 1, 0, 3)
+Updated Buffer State: (5, 0, 1, 0)
+Updated Place Request: (0, 1, 0, 0)
+
+Part Worker ID: 3
+Iteration: 1
+Buffer State: (5, 0, 1, 0)
+Updated Place Request: (0, 0, 0, 0)
+Place Request: (0, 0, 0, 4)
+Updated Buffer State: (5, 0, 1, 3)
+Updated Place Request: (0, 0, 0, 1)
+
+Part Worker ID: 3
+Iteration: 2
+Buffer State: (5, 0, 1, 3)
+Updated Place Request: (0, 0, 0, 1)
+Place Request: (0, 0, 4, 0)
+Updated Buffer State: (5, 0, 4, 3)
+Updated Place Request: (0, 0, 1, 1)
+
+Product Worker ID: 2
+Iteration: 1
+Buffer State: (5, 0, 4, 3)
+Updated Place Request: (0, 0, 0, 0)
+Pickup Request: (2, 1, 2, 0)
+Updated Buffer State: (3, 0, 2, 3)
+Updated Place Request: (0, 1, 0, 0)
+
+Part Worker ID: 3
+Iteration: 3
+Buffer State: (3, 0, 2, 3)
+Updated Place Request: (0, 0, 1, 1)
+Place Request: (0, 0, 0, 4)
+Updated Buffer State: (3, 0, 3, 3)
+Updated Place Request: (0, 0, 0, 5)
+
+Part Worker ID: 3
+Iteration: 4
+Buffer State: (3, 0, 3, 3)
+Updated Place Request: (0, 0, 0, 5)
+Place Request: (0, 0, 4, 0)
+Updated Buffer State: (3, 0, 4, 3)
+Updated Place Request: (0, 0, 3, 5)

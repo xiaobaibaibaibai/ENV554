@@ -49,16 +49,16 @@ int main() {
 	s.push(3);
 	s.push(2);
 	s.push(1);
-	cout << s.top();//One can only access the top element of the stack
+	cout << s.top() << endl;//One can only access the top element of the stack
 					//in this case, it will be value 1;
 	s.pop();//remove the element on top of stack
-
+	
 	queue<int> q;
 	q.push(5);
 	q.push(3);
 	q.push(2);
 	q.push(1);
-	cout << q.front();
+	cout << q.front() << endl;
 	q.pop();
 
 	cout << endl;
@@ -87,23 +87,24 @@ int main() {
 	//m4[8] = "John";  Error!  You cannot create an element of multimap in this way.
 	//Instead, use the following format.
 	m4.insert(pair<int, string>(8, "John"));
-	multimap<int, string>::iterator it13 = m4.begin();
+	m4.insert(pair<int, string>(6, "Wentan"));
+	// multimap<int, string>::iterator it13 = m4.begin();
+	auto it13 = m4.begin();
 	while (it13 != m4.end()) {
 		cout << it13->first << " " << it13->second << " ";
 		it13++;
 	}
 
-	
-	cout << endl;
 
+	cout << endl;
 	
 
 	threeD t5(3, 4, 5), t6(10, 20, 30), t7(50, 60, 70);
 
 	map<threeD, string> m3;
 
-	m3[t6] = " medium object";
-	m3[t7] = " larage object";
+	m3[t6] = "medium object";
+	m3[t7] = "larage object";
 	m3[t5] = "Small Oject";
 	map<threeD, string>::iterator it2 = m3.begin();
 	while (it2 != m3.end()) {

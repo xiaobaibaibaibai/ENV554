@@ -59,7 +59,7 @@
                 "-lpthread",
                 "-o",
                 "running",
-                "test.cpp",
+                "2018_10_09_Smart_Pointer.cpp",
                 "-std=c++17",
                 "-ggdb3",
                 "&&",

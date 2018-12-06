@@ -10,6 +10,8 @@ condition_variable cv1, cv2;
 vector<int> vec;
 
 
+
+
 //unique_lock is defined as local variables which will be removed once the the variables are out of scope
 //and at the same time the destructor will unlock it.
 void get1(int i) { //each get funciton works on 10 numbers in the vec and then clear the vec if the
@@ -67,6 +69,10 @@ int main() {
 	for (int i = 0; i < 10; i++) {
 		put_thread[i].join();
 	}
+
+	cout << endl;
+	cout << "Finish !!!" << endl;
+	
 	getchar();
 	getchar();
 	return 0;

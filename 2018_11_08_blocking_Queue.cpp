@@ -38,7 +38,6 @@ public:
 };
 
 void put(blocking_queue &b_queue, int i, int k) {
-
 	b_queue.push(k);
 	cout << "putter " << i << " push value " << k << " to the blocking_queue" << endl;
 }
@@ -66,8 +65,8 @@ int main() {
 		getter[i].join();
 	}
 
-	getchar();
-	getchar();
+	// getchar();
+	// getchar();
 	return 0;
 
 }

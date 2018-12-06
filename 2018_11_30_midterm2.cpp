@@ -88,12 +88,13 @@ void linked_list::operator=(const linked_list &L){ //L-value operator=
 	}
 }
 
-linked_list::linked_list(const initializer_list<int> & I): linked_list(){
+linked_list::linked_list(const initializer_list<int> & I){
 	// auto it1 = I.end()-1;
 	// while (it1 != I.begin()) {
 	// 	node * p1 = new node(*it1);
 	// 	p1->next = head;
 	// 	head = p1;
+    
 	// 	it1--;
 	// }
 	// node *p2 = new node(*it1);

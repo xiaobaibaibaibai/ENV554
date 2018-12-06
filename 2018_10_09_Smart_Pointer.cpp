@@ -16,7 +16,7 @@ int main() {
 		unique_ptr<ThreeD> p1 = make_unique<ThreeD>(3, 4, 5);
 		cout << p1->ht << endl;
 		//unique_ptr<ThreeD> p2 = p1; Error!  object is uniquely pointed by p1
-		unique_ptr<int> p4 = make_unique<int>(40);
+		auto p4 = make_unique<int>(40);
 		cout << *p4 << endl;
 	}
 	//The objected pointed by p1 will be automatically deleted once p1 is out of scope
