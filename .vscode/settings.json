@@ -43,6 +43,11 @@
         "typeinfo": "cpp",
         "thread": "cpp",
         "condition_variable": "cpp",
-        "chrono": "cpp"
+        "chrono": "cpp",
+        "atomic": "cpp",
+        "ctime": "cpp",
+        "mutex": "cpp",
+        "numeric": "cpp",
+        "ratio": "cpp"
     }
 }

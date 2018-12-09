@@ -31,11 +31,11 @@ int main() {
 
 	void * p1;// p1 is a pointer of universal data type
 	p1 = &m;
-	cout << *((int *) p1) << endl; //type casting is required to use univeral pointers
+	cout << "p1 : " << *((int *) p1) << endl; //type casting is required to use univeral pointers
 
 	char c1 = 'W';
 	p1 = &c1;
-	cout << *((char *)p1) << endl;
+	cout << "p1 : " << *((char *)p1) << endl;
 
 	char * p2;
 	p2 = (char *) p1;

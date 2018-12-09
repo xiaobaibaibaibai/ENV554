@@ -19,9 +19,20 @@ bool f_sort(Three_D T1, Three_D T2) { return T1.ht + T1.wid + T1.dep < T2.ht + T
 int main() {
 	list<int> L1 = { 6, 3, 11, 2, 1 };
 	L1.sort();
-	Three_D T1(3, 4, 5), T2(5, 1, 2), T3(2, 1, 8);
+	for (int ll : L1) {
+		cout << ll << " ";
+	}
+	cout << endl;
+
+	
 	vector<int> V1 = { 6, 3, 11, 2, 1 };
 	sort(V1.begin(), V1.end());
+	for (int vv : V1) {
+		cout << vv << " ";
+	}
+	cout << endl;
+	
+	Three_D T1(3, 4, 5), T2(5, 1, 2), T3(2, 1, 8);
 	vector<Three_D> V2 = { T1, T2,  T3 };
 	sort(V2.begin(), V2.end());
 	sort(V2.begin(), V2.end(), f_sort);
@@ -38,9 +49,16 @@ int main() {
 		//i is read only
 		//j, k allow both read and write
 	
-
+		
 		j++;//j allows both read and write
 		//i++;  Error!  i is read only.
+		
+		cout << "i : " << i << endl;
+		cout << "j : " << j << endl;
+		cout << "k : " << k << endl;
+		cout << "c : " << c << endl;
+		cout << "d : " << d << endl;
+
 		return i + j + k + c + d;
 	};
 	i = 100;
@@ -54,11 +72,5 @@ int main() {
 	getchar();
 	getchar();
 	return 0;
-
-
-
-
-
-
 
 }

@@ -31,7 +31,7 @@ public:
 
 	big_data(const big_data &X) { //copy constructor
 		
-		PV = make_shared<vector<int>>(*X.PV);
+		PV = make_shared<vector<int>>(*(X.PV));
 
 
 								  //notice the use of const and & 
@@ -85,21 +85,22 @@ void f1(big_data B) { //call by value; will invoke copy constructor
 
 int main() {
 	big_data B1, B2;
-	B1.create_random_array(20, 30);
-	B1.print();
+	B1.create_random_array(10, 30);
+ 	B1.print();
 	B2 = B1;//only copy top level data
 			//operator=
 			//B2.operator=(B1);  L-value operator=
 
 	B2.print();
-	(*B1.PV)[10] = 1000;
+	(*B1.PV)[5] = 1000;
 	B2.print();
 
 	
 	big_data B3(B1); //will invoke copy constructor
 					 //equivalently, big_data B3 = B1;
-	(*B1.PV)[15] = 2000;
+	(*B1.PV)[8] = 2000;
 	B3.print();
+
 	big_data B4;
 	B4 = B1.three_times();
 	//B4.operator=(B1.three_times());
@@ -111,7 +112,7 @@ int main() {
 
 	f1(B1);
 
-	getchar();
-	getchar();
+	// getchar();
+	// getchar();
 	return 0;
 }

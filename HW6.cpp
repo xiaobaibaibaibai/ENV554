@@ -18,7 +18,7 @@ void merge(vector<int> &V, int i1, int i2, int j1, int j2); //Merge vector elmen
                                                             //from position j1 to position j2.
 							    //Note that elements from i1 to i2 are already sorted, and elements from j1 to j2 are
 							    //also sorted already.
-
+void merge1(vector<int> &V, int i1, int i2, int j1, int j2);
 
 void merge_sort(vector<int> &V, int i, int j) {
 	if (i < j) {
@@ -67,32 +67,85 @@ void merge(vector<int> &V, int i1, int i2, int j1, int j2) {
 }
 
 
-void output(vector<int> &V, int i) {
-	V[i] = i;
+void merge_sort1(vector<int> &V, int i, int j) {
+	if (i < j) {
+		int mid = (i + j) / 2;
+		merge_sort1(V, i, mid);
+		merge_sort1(V, mid+1, j);
+		merge1(V, i, mid+1, mid, j);
+	}
+}
+
+void merge1(vector<int> &V, int i1, int i2, int j1, int j2) {
+	int n1 = j1 - i1 + 1;
+	int n2 = j2 - i2 + 1;
+	int v1[n1];
+	int v2[n2];
+
+	for (int i = 0; i < n1; i++) {
+		v1[i] = V[i + i1];
+	}
+	for (int j = 0; j < n2; j++) {
+		v2[j] = V[j + i2];
+	}
+
+	int k1 = 0, k2 = 0, vi = 0;
+	while (k1 < n1 && k2 < n2) {
+		if (v1[k1] < v2[k2]) {
+			V[vi + i1] = v1[k1];
+			k1++;
+		} else {
+			V[vi + i1] = v2[k2];
+			k2++;
+		}
+		vi++;
+	}
+
+	while (k1 < n1) {
+		V[vi + i1] = v1[k1];
+		k1++;
+		vi++;
+	}
+	while (k2 < n2) {
+		V[vi + i1] = v2[k2];
+		k2++;
+		vi++;
+	}
 }
 
 
-
 int main() {
+	/*
 	int n = 100000;
 	vector<int> V(n);//V has n elements.
 	for (int i = 0; i < 100000; i++) V[i] = rand() % 5000;
 	//You need to creat four threads to perform sorting
 	//You need to then save the sorted result to output.txt
+	*/
+
+	int n = 20;
+	vector<int> V(n);//V has n elements.
+	for (int i = 0; i < 20; i++) V[i] = rand() % 5000;
+	//You need to creat four threads to perform sorting
+	//You need to then save the sorted result to output.txt
 	
 
-	thread t1(merge_sort, ref(V), 0, n/4 - 1);
-	thread t2(merge_sort, ref(V), n/4, n/2 - 1);
-	thread t3(merge_sort, ref(V), n/2, n -n/4 - 1);
-	thread t4(merge_sort, ref(V), n -n/4, n-1);
+	thread t1(merge_sort1, ref(V), 0, n/4 - 1);
+	thread t2(merge_sort1, ref(V), n/4, n/2 - 1);
+	thread t3(merge_sort1, ref(V), n/2, n -n/4 - 1);
+	thread t4(merge_sort1, ref(V), n -n/4, n-1);
 	t1.join();
 	t2.join();
 	t3.join();
 	t4.join();
 
-	merge(V, 0, n/4, n/4 - 1, n/2 - 1);
-	merge(V, n/2, n - n/4, n - n/4 - 1, n-1);
-	merge(V, 0, n/2, n/2 - 1, n - 1);
+	merge1(V, 0, n/4, n/4 - 1, n/2 - 1);
+	merge1(V, n/2, n - n/4, n - n/4 - 1, n-1);
+	merge1(V, 0, n/2, n/2 - 1, n - 1);
+
+	for (int i : V) {
+		cout << i << endl;
+	}
 
 	ofstream out1("output.txt");
 	for (int i = 0; i < n; i++) {

@@ -45,22 +45,20 @@ void put(blocking_queue &b_queue, int i, int k) {
 // //original is: void get(blocking_queue  &b_queue, int i) {
 void get1(blocking_queue  &b_queue, int i) {
 	cout << "getter " << i << " pop value " << b_queue.pop() << endl;;
-
 }
 
 int main() {
 
 	blocking_queue b_queue;
-	thread putter[30];
-	thread getter[30];
+	thread putter[10];
+	thread getter[10];
 
-	for (int i = 0; i < 30; i++) {
+	for (int i = 0; i < 10; i++) {
 		putter[i] = thread(put, ref(b_queue), i, 10 * i);
 		getter[i] = thread(get1, ref(b_queue), i); //original is: thread(get, ref(b_queue), i);
 	}
 
-	for (int i = 0; i < 30; i++) {
-
+	for (int i = 0; i < 10; i++) {
 		putter[i].join();
 		getter[i].join();
 	}

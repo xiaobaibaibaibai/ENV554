@@ -16,8 +16,6 @@ int fun1(int &i) {
 	static int num_calls = 1; //persistent local variable;
 							  //static variable will only be initialized once.
 							  //"Persistent" means that when a function ends, the variable still keeps its value.
-
-
 	cout << i*i << " ";
 	return num_calls++;
 }

@@ -1,5 +1,5 @@
 #include <iostream>
-#include <stdlib.h>
+// #include <stdlib.h>
 #include <string>
 #include <vector>
 using namespace std;
@@ -16,7 +16,7 @@ public:
 	ThreeD(T a, T b, T c) { ht = a; wid = b; dep = c; }
 	bool operator==(ThreeD<T> &t) { return (ht == t.ht && wid == t.wid && dep == t.dep); }
 	bool operator!=(ThreeD<T> &t) { return (ht != t.ht || wid != t.wid || dep != t.dep); }
-	template <class T> friend	ostream & operator<<(ostream &s, const ThreeD<T> &t);
+	template <class U> friend ostream & operator<<(ostream &s, const ThreeD<U> &t);
 };
 
 template <class T> class node {
@@ -43,7 +43,7 @@ public:
 	void operator=(const linked_list<T> &L);
 
 
-	template <class T> friend ostream & operator<<(ostream &s, const linked_list<T> &L);
+	template <class V> friend ostream & operator<<(ostream &s, const linked_list<V> &L);
 };
 template <class T> linked_list<T>::linked_list(const initializer_list<T> &V) : linked_list() {
 	auto it1 = V.begin();
@@ -185,7 +185,7 @@ public:
 	void erase(int index);
 	void erase(item<X> * p);
 
-	template <class X> friend ostream & operator<<(ostream &s, const bag<X> &B);
+	template <class W> friend ostream & operator<<(ostream &s, const bag<W> &B);
 
 };
 
@@ -390,24 +390,27 @@ template <class T> ostream & operator<< (ostream &s, const vector<T> & V) {
 
 int main() {
 	
-	bag<double> bag_d;
-	bag_d.push_back(5.5);
-	bag_d.push_back(6.6);
-	bag_d.push_front(4.4);
-	bag_d.push_front(3.3);
-	bag_d.pop_front();
-	bag_d.pop_back();
-	cout << bag_d << endl;;
-	bag<int> bag_i;
-	bag_i.push_back(5);
-	bag_i.push_back(6);
-	bag_i.push_front(4);
-	bag_i.push_front(3);
-	bag_i.pop_front();
-	bag_i.pop_back();
-	cout << bag_i << endl;
+	// bag<double> bag_d;
+	// bag_d.push_back(5.5);
+	// bag_d.push_back(6.6);
+	// bag_d.push_front(4.4);
+	// bag_d.push_front(3.3);
+	// bag_d.pop_front();
+	// bag_d.pop_back();
+	// cout << bag_d << endl;;
+	// bag<int> bag_i;
+	// bag_i.push_back(5);
+	// bag_i.push_back(6);
+	// bag_i.push_front(4);
+	// bag_i.push_front(3);
+	// bag_i.pop_front();
+	// bag_i.pop_back();
+	// cout << bag_i << endl;
 
 	ThreeD<int> td3(3), td4(4), td5(5), td6(6), td7(100, 200, 300);
+	cout << td3 << endl;
+
+	/*
 	bag<ThreeD<int>> bag_3D;
 	bag_3D.push_back(td5);
 	bag_3D.push_back(td6);
@@ -505,7 +508,7 @@ int main() {
 	cout << B15 << endl;
 	B15.erase(1);
 	cout << B15 << endl;
-
+	*/
 	getchar();
 	getchar();
 	return 0;

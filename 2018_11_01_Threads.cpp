@@ -3,7 +3,7 @@
 using namespace std;
 
 void f1(int a, int b, int &d) {
-	for (int i = 0; i < 1000; i++) {
+	for (int i = 0; i < 100; i++) {
 		d = 11111;
 		cout << "print from thread 1 :" << a + 2 * b << " d = " << d << endl;
 	}
@@ -20,21 +20,21 @@ void f2(int a, int d) {
 int main() {
 
 	int d = 100;
-	/*
+	
 	thread t1(f1, 5, 6, ref(d));
 	//In general, call by reference is not encouraged for multi-threaded programming,
 	//because allowing multiple threads to modify the same object is very error-prone.
 
 
 	thread t2(f2, 8, d);
-	for (int i = 0; i < 1000; i++)
+	for (int i = 0; i < 100; i++)
 		cout << "print from main  :" << endl;
 	t1.join();
 	t2.join();
 	cout << "done join." << endl;
-		
+		/*
 	//int d = 10;
-*/
+
 	thread TT[1000];
 	for (int i = 0; i < 1000; i++)
 	{
@@ -42,7 +42,7 @@ int main() {
 	}
 	 
 	for (int i = 0; i < 1000; i++) TT[i].join();
-
+*/
 	
 	getchar();
 	getchar();

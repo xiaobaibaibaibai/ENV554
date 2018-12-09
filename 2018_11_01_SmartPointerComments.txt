@@ -1,6 +1,6 @@
 
 
-/*
+
 
 weak_ptr = weak_ptr;
 
@@ -39,7 +39,7 @@ we can swap the two:
 p1.swap(p2);
 
 
-*/
+
 
 
 

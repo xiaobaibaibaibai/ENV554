@@ -9,20 +9,27 @@ using namespace std;
 int bufferArea[] = {0, 0, 0, 0};
 mutex m1;
 condition_variable cv1, cv2;
-
+int numThreads = 0;
+int sleepOrFinished = 0;
 
 void PartWorker(int i) {
+    numThreads += 1;
     int num1 = 0, num2 = 0, num3 = 0;
     int updatedPlaceRequest[] = {0, 0, 0, 0};
     int iteration = 1;
+    bool isSleep = false;
     while (iteration < 6) {
         unique_lock<mutex> ulock1(m1);
         while (bufferArea[0] + updatedPlaceRequest[0] > 6
-                || bufferArea[1] + updatedPlaceRequest[1] > 5
-                || bufferArea[2] + updatedPlaceRequest[2] > 4
-                || bufferArea[3] + updatedPlaceRequest[3] > 3) {
-                    cv1.wait(ulock1);
-                }
+            || bufferArea[1] + updatedPlaceRequest[1] > 5
+            || bufferArea[2] + updatedPlaceRequest[2] > 4
+            || bufferArea[3] + updatedPlaceRequest[3] > 3) {
+                cv1.wait(ulock1);
+        }
+        if(isSleep) {
+            isSleep = false;
+            sleepOrFinished--;
+        }
         string output = "Part Worker ID: " + to_string(i) + "\n";
         output = output + "Iteration: " + to_string(iteration) + "\n";
         output = output + "Buffer State: (" + to_string(bufferArea[0]) + ", "
@@ -65,20 +72,24 @@ void PartWorker(int i) {
                 cout << "Updated Buffer State: (" << bufferArea[0] << ", " << bufferArea[1] << ", " << bufferArea[2] << ", " << bufferArea[3] << ")" << endl;
                 cout << "Updated Place Request: (" << updatedPlaceRequest[0] << ", " << updatedPlaceRequest[1] << ", " << updatedPlaceRequest[2] << ", " << updatedPlaceRequest[3] << ")" << endl;
                 cout << endl;
-            }
+                isSleep = true;
+        }
+        if (isSleep) {
+            sleepOrFinished++;
+        }
         iteration++;
         cv2.notify_all();
     }
+    sleepOrFinished++;
     cv1.notify_all();
-    
 }
 
 
 void ProductWorker(int i) {
+    numThreads += 1;
     int num1 = 0, num2 = 0, num3 = 0;
     vector<int> updatedPickupRequest = {0, 0, 0, 0};
     int iteration = 1;
-    bool isSuspend = false;
     while (iteration < 6) {
         unique_lock<mutex> ulock1(m1);
         while (bufferArea[0] - updatedPickupRequest[0] < 0
@@ -87,10 +98,6 @@ void ProductWorker(int i) {
                 || bufferArea[3] - updatedPickupRequest[3] < 3) {
                     cv2.wait(ulock1);
         }
-        if (isSuspend) {
-            isSuspend = false;
-        }
-        
         string output = "Product Worker ID: " + to_string(i) + "\n";
         output = output + "Iteration: " + to_string(iteration) + "\n";
         output = output + "Buffer State: (" + to_string(bufferArea[0]) + ", "
@@ -131,7 +138,6 @@ void ProductWorker(int i) {
                 cout << "Updated Buffer State: (" << bufferArea[0] << ", " << bufferArea[1] << ", " << bufferArea[2] << ", " << bufferArea[3] << ")" << endl;
                 cout << "Updated Place Request: (" << updatedPickupRequest[0] << ", " << updatedPickupRequest[1] << ", " << updatedPickupRequest[2] << ", " << updatedPickupRequest[3] << ")" << endl;
                 cout << endl;
-                isSuspend = true;
 
         }
         iteration++;

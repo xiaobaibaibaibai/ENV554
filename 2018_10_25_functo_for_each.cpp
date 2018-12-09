@@ -20,7 +20,6 @@ class ThreeD {
 	ThreeD(int i, int j, int k) { ht = i; wid = j; dep = k; }
 };
 
-
 class Y {
 public:
 	int operator()(int i) { return i * i; }

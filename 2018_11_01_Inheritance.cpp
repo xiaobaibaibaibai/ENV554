@@ -53,9 +53,6 @@ public:
 //D has 1 protected member b3
 //D has 1 public member c3
 //Both protected and public members of the base class A become private in the derived class D
-
-
-
 class D : private A {
 private:
 	int a3;
