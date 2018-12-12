@@ -59,8 +59,8 @@
                 "-lpthread",
                 "-o",
                 "running",
-                "test.cpp",
-                "-std=c++17",
+                "hw7.cpp",
+                "-std=c++11",
                 "-ggdb3",
                 "&&",
                 "./running"

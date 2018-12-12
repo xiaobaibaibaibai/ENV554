@@ -70,6 +70,7 @@ int main() {
 
 	cout << endl;
 	cout << "Finish !!!" << endl;
+	cout << vec.size() << endl;
 	
 	getchar();
 	getchar();
